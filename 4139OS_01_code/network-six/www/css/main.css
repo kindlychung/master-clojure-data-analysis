@@ -1,0 +1,30 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.link {
+    fill: none;
+}
+
+.axis, .node {
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+
+.degree {
+    fill: none;
+}
+
+.degree-null {
+    opacity: 0.05;
+    stroke-opacity: 0.05;
+    fill-opacity: 0.05;
+}
+

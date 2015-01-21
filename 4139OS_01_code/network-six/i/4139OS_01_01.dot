@@ -1,0 +1,43 @@
+graph density {
+  nodesep=1.25;
+
+  a [ label="",fontsize=6,width=.5,fixedsize=true ];
+  b [ label="",fontsize=6,width=.5,fixedsize=true ];
+  c [ label="",fontsize=6,width=.5,fixedsize=true ];
+  d [ label="",fontsize=6,width=.5,fixedsize=true ];
+  e [ label="",fontsize=6,width=.5,fixedsize=true ];
+  f [ label="",fontsize=6,width=.5,fixedsize=true ];
+
+  a -- b;
+  a -- c;
+  a -- d;
+  a -- e;
+  a -- f;
+  b -- c;
+  b -- d;
+  b -- e;
+  b -- f
+  c -- d;
+  c -- e;
+  c -- f;
+  d -- e;
+  d -- f;
+  e -- f;
+
+  g [ label="",fontsize=6,width=.5,fixedsize=true ];
+  h [ label="",fontsize=6,width=.5,fixedsize=true ];
+  i [ label="",fontsize=6,width=.5,fixedsize=true ];
+  j [ label="",fontsize=6,width=.5,fixedsize=true ];
+  k [ label="",fontsize=6,width=.5,fixedsize=true ];
+  l [ label="",fontsize=6,width=.5,fixedsize=true ];
+
+  g -- h;
+  g -- j;
+  g -- l;
+  h -- j;
+  h -- l
+  i -- k;
+  j -- k;
+  k -- l;
+
+}
