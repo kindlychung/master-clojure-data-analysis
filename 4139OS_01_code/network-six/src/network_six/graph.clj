@@ -53,8 +53,16 @@
 ;;; }}}
 ;;; {{{ Changing
 
+;;; Demo of update-in
+;;; In python it should be something like func(obj.k1.k2.k3 ...)
+;(def users [{:name "James" :age 26}  {:name "John" :age 43}])
+;(update-in users [1 :age] inc)
+
+;; Update a set by adding an element to it
+;; If the set is nil, then create an empty set and use that instead
 (defn update-conj [s x]
   (conj (if (nil? s) #{} s) x))
+;(update-conj #{:c :b 1 2 3 "abc"} :a)
 
 (defn add
   ([g x y] (add g x y false))
@@ -148,6 +156,7 @@
 
 ;;; }}}
 ;;; {{{ Metrics
+
 
 (defn density [graph]
   (let [n (count (get-vertices graph))
