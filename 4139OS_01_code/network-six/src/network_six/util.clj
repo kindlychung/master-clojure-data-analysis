@@ -1,8 +1,9 @@
-
 (ns network-six.util
   (:require [clojure.string :as string]
             [clojure.set :as set]
-            [org.clojure/tools.trace "0.7.8"]))
+            [clojure.tools.trace :as trace])
+  (:import (java.io FileNotFoundException)))
+
 
 (defn mean [coll]
   (let [

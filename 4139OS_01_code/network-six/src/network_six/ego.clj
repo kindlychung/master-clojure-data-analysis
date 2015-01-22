@@ -1,4 +1,3 @@
-
 (ns network-six.ego
   (:require [clojure.java.io :as io]
             [clojure.set :as set]
@@ -14,15 +13,31 @@
   (with-open [f (io/reader filename)]
     (->>
       f
+      ;; Get a lazy seq of lines from file reader
       line-seq
+      ;; Split each line by whitespace
       (r/map #(string/split % #"\s+"))
+      ;; Parse numbers in each line
       (r/map #(mapv (fn [x] (Long/parseLong x)) %))
+      ;; Add the edge in each line into the graph
       (r/reduce #(g/add %1 (first %2) (second %2)) g/empty-graph))))
 
+;;; Difference between map and mapv
+;;; map returns a lazy seq
+;(map str [1 2 3] [4 5 6])
+;;; mapv returns a vector
+;(mapv str [1 2 3] [4 5 6])
+
+
 (defn read-edge-files [ego-dir]
+  "Read each edge file in `ego-dir` and merge all graphs into one."
   (r/reduce g/merge-graphs {}
             (r/map read-edge-file
                    (fs/find-files ego-dir #".*\.edges$"))))
+
+(def graph (read-edge-files "/Users/kaiyin/personal_config_bin_files/workspace/master-clojure-data-analysis/"))
+(count (g/get-vertices graph))
+(count (g/get-edges graph))
 
 (defn json-nodes [graph]
   (map #(hash-map :n (first %1)

@@ -1,4 +1,3 @@
-
 (ns network-six.graph
   (:require [clojure.set :as set]
             [clojure.core.reducers :as r]
@@ -11,6 +10,24 @@
 
 (defrecord Graph
   [neighbors data])
+
+;;; Demo of with-meta
+;;; Returns an object of the same type and value as obj, with map m as its metadata.
+;(with-meta [1 2 3] {:my-impression :good})
+;(meta (with-meta [1 2 3] {:my-impression :good}))
+;;; Demo of defrecord and deftype
+;(defrecord Point [x y])
+;(.x (Point. 3 4))
+;(:x (Point. 3 4))
+;(map :x [(Point. 1 2) (Point. 3 4) (Point. 5 6)])
+;(assoc (Point. 3 4) :z 5)
+;(let [p (assoc (Point. 3 4) :z 5)]
+;  (dissoc p :x))
+;(Point/getBasis)
+;(defrecord NamedPoint [^String name ^long x ^long y])
+;(NamedPoint/getBasis)
+;(map meta (NamedPoint/getBasis))
+
 
 (def empty-graph (Graph. {} {}))
 
